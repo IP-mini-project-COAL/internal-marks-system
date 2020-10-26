@@ -1,0 +1,387 @@
+.fg{
+    display:block;
+}
+.update_marks{
+    display:none;
+}
+.activate{
+    display:block;
+}
+.deactivate{
+    display:none;
+}
+.info-btn{
+    width:150px;
+    margin:auto;
+}
+
+#i_submit{
+    width: 150px;
+    height: 50px;
+    margin: 0 0px 10px;
+    background: transparent;
+    background-color: #262626;
+    border-radius: 30px;
+    border: 1px solid #2196f3;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#i_submit:hover{
+    background-color: #2196f3;
+    border: 1px solid #262626;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:  sans-serif;
+}
+.container{
+    width: 90%;
+    margin:auto;
+}
+header{
+    position: absolute;
+    top:0;
+    left:0;
+    padding:0 100px;
+    background: #262626;
+    width: 100%;
+    box-sizing: border-box;
+}
+ header .logo{
+    color:#fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float:left;
+    font-weight: bold;
+    cursor: pointer;
+ }
+
+ header nav{
+     float:right;
+ }
+
+ header nav ul{
+     display: flex;
+ }
+
+ header nav ul li{
+     list-style: none;
+
+ }
+
+ header nav ul li div {
+     height: 50px;
+     line-height: 50px;
+     padding: 0 20px;
+     color: #fff;
+     cursor: pointer;
+     display:block;
+ }
+
+ header nav ul li div a{
+    text-decoration: none;
+    color:#fff;
+ }
+
+ header nav ul li div:hover,
+ header nav ul li div.active {
+     color: #fff;
+     background:#2196f3;
+ }
+
+.menu-toggle{
+    color:#fff;
+    float:right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor:pointer;
+    display: none;
+}
+ @media(max-width:1024px){
+     header{
+         padding: 0 20px;
+     }
+     .menu-toggle{
+         display: block;
+     }
+
+     header nav{
+         
+         position: absolute;
+         width:100%;
+         height: calc(100vh-50px);
+         background:#333;
+         top:50px;
+         /*right:-100%;*/
+         left:-100%;
+         transition: 0.5s;
+     }
+     header nav.active{
+         left:0;
+         /*right:0;*/
+     }
+     header nav ul{
+         display: block;
+         text-align: center;
+     }
+     header nav ul li div{
+         border-bottom: 1px solid rgba(0,0,0,.2);
+     }
+ }
+.active-disable{
+    margin: 260px auto 0 !important;
+}
+@media(min-width:1024px){
+    .content{
+        margin:auto !important;
+    }
+}
+
+
+
+ .content{
+    position: relative;
+    align-items: center;
+    width:590px;
+    margin: auto;
+    box-shadow:  0 10px 10px royalblue;
+    transition: 0.3s;
+    padding: 20px  0;
+    
+}
+.header-sub{
+    
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+}
+
+#dup_error{
+    margin-top: 5px;
+    color:red;
+    text-align: center;
+    font-size: 16px;
+}
+.contact-form label{
+    font-weight:600;
+    margin-left: 10px;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+
+.form-control{
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 10px 0px;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition: .3s;
+    width: 269px;
+    font-weight: bold;
+    
+}
+.col-sm-10{
+    margin-bottom: 20px;
+}
+.col-sm-100{
+    margin-bottom: 35px;
+}
+.form-control:focus{
+    border-color: dodgerBlue;
+    /*box-shadow:0 0 0 8px 0 dodgerblue;*/
+}
+#sub_cd{
+    display:flex;
+    margin:8px auto 0px;
+}
+.control-label-div-cd{
+    width: 269px;
+    margin: auto;
+}
+
+.control-label-cd{
+    font-weight:600;
+    margin-left: 0 !important;
+}
+#proj{
+    display:flex;
+    margin:8px auto 0px;
+}
+.control-label-div-mp{
+    width: 269px;
+    margin: auto;
+}
+
+.control-label-mp{
+    font-weight:600;
+    margin-left: 0 !important;
+}
+.error{
+    font-size: 12px;
+    color:red;
+    
+    line-height: 13px;
+    margin:2px 10px 0 12px;
+}
+.error-cd{
+    display: flex;
+    margin:8px auto 0;
+    font-size: 12px;
+    color:red;
+    line-height: 13px;
+}
+#sub_cd_error{
+    width: 269px;
+    margin:auto;
+}
+#rno_error,#year_error,#sem_error{
+    position: relative;
+    width:274px;
+    float: right;
+}
+#name_error,#ay_error,#dept_error{
+    display: inline;
+}
+
+
+
+.btn-grp{
+    width: 445px;
+    margin:auto;
+}
+.Button{
+    width: 150px;
+    height: 50px;
+    margin: 0 32px 10px;
+    background:transparent;
+    background-color: #262626;
+    border-radius: 30px;
+    border:  1px solid #2196f3;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.Button:hover {
+background-color: #2196f3;
+border: 1px solid #262626;
+}
+
+@media(max-width:670px){
+    .content{
+        width:100%;
+    }
+    .form-control{
+        display: flex;
+        margin:8px auto 0px;
+    }
+    .control-label-div{
+        width:269px;
+        margin: auto;
+    }
+    .contact-form label{
+        margin: 0;
+    }
+
+    .error{
+        font-size: 13px;
+        width: auto;
+    }
+    #rno_error,#year_error,#sem_error{
+        display: flex;
+        justify-content: center;
+        margin:0;
+        width: auto;
+        float: none;
+        
+    }
+    #name_error,#ay_error,#dept_error{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media(max-width:484px){
+    .btn-grp{
+        width:inherit;
+    }
+    .Button{
+        margin: 0 auto 10px;
+        display:flex;
+        justify-content: space-around;
+    }
+}
+
+.logout{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-color:rgba(0,0,0,0.8);
+    display:flex;
+    visibility: hidden;
+    opacity:0;
+    transition: visibility 1s, opacity 0.5s;
+ }
+
+ .rl_active{
+    visibility: visible;
+    opacity: 1;
+ }
+ .logout_box{
+    padding: 20px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:linear-gradient(#9a9797,#e0cfcf);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+ }
+
+ #close2{
+    position:absolute;
+    top: -1%;
+    right: -1%;
+    border-radius: 50%;
+    background: rgb(197, 198, 199);
+    cursor: pointer;
+  }
+
+  .namee{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin:0 auto 20px;
+ }
+ .logout-btn{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+ }
+ .logout-btn a{
+    color:black;
+    text-decoration: none;
+
+ }
+

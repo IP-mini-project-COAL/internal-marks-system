@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUDD</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<!--?php
+  $servername = "localhost";
+  $username ="root";
+  $password = "";
+  $database = "dummy";
+  $error_name = "";
+  $error_rollno = "";
+  $error_ay = "";
+  $error_dept = "";
+  $error_year = "";
+  $error_sem = "";
+  $error_sbcd = "";
+  $errors=0;
+  $con = new mysqli($servername,$username,$password,$database);
+
+  if(!$con)
+  {
+      die('Could not connect'.mysql_error());
+  }   
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "HIIII";
+    $name = test_input($_POST["name"]);
+    $rno= test_input($_POST['Roll_No']);
+    $ay = test_input($_POST['ayear']);
+    $year =test_input($_POST['year']);
+    $sub= test_input($_POST['sub_cd']);
+    $sem= test_input($_POST['sem']);
+    $dept= test_input($_POST['dept']);
+    $ia1= test_input($_POST['IA1']);
+    $ia2= test_input($_POST['IA2']);
+    $q1= test_input($_POST['Q1']);
+    $q2= test_input($_POST['Q2']);
+    $q3= test_input($_POST['Q3']);
+    $q4= test_input($_POST['Q4']);
+    $a1= test_input($_POST['A1']);
+    $a2= test_input($_POST['A2']);
+    $a3= test_input($_POST['A3']);
+    $a4= test_input($_POST['A4']);
+    $e1= test_input($_POST['E1']);
+    $e2= test_input($_POST['E2']);
+    $e3= test_input($_POST['E3']);
+    $e4= test_input($_POST['E4']);
+    $e5= test_input($_POST['E5']);
+    $e6= test_input($_POST['E6']);
+    $e7= test_input($_POST['E7']);
+    $e8= test_input($_POST['E8']);
+    $e9= test_input($_POST['E9']);
+    $e10= test_input($_POST['E10']);
+    $mp= test_input($_POST['MP']);
+
+    if(empty($name)){
+      $error_name = "Name cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($rno)){
+      $error_rollno = "Roll No. cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($ay)){
+      $error_ay = "Academic year cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($year)){
+      $error_year = "Year cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($dept)){
+      $error_dept = "Department cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($sem)){
+      $error_sem = "Semester cannot be empty!!";
+      $errors+=1;
+    }
+    if(empty($sub)){
+      $error_sbcd = "Subject code cannot be empty!!";
+      $errors+=1;
+    }else{
+    $department =array();
+    $semester = array();
+    $ayear = array();
+
+    $sql = "SELECT sem,dept,ay FROM subject WHERE sub_code='".$sub."'";
+    $result = $con->query($sql);
+    while($values = $result->fetch_array()){
+      $semester[] = $values['sem'];
+      $department[] = $values['dept'];
+      $ayear[] = $values['ay'];
+    }
+    $sem_flag = true;
+    $dept_flag = true;
+    $ay_flag = true;
+    foreach ($a as $semester){
+      if($a==$sem){
+        $sem_flag =false;
+      }
+    }
+    foreach ($b as $department){
+      if($b==$dept){
+        $dept_flag = false;
+      }
+    }
+    foreach ($c as $ayear){
+      if($c==$ay){
+        $ay_flag = false;
+      }
+    }
+    if($sem_flag){
+      $error_sem= "Invalid Semester!!";
+      $errors+=1;
+    }
+    if($dept_flag){
+      $error_dept = "Invalid Department!!";
+      $errors+1;
+    }
+    if($ay_flag){
+      $error_ay = "Invalid Academic Year!!";
+      $errors+=1;
+    }
+    $student_name = "";
+    $student_rollno = 0;
+    $sql2 = "SELECT stud_nm,stud_rollno FROM student WHERE e_year='".$year."' and department='".$dept."' and sem='".$sem."' and ay='".$ay."'";
+    $result2 = $con->query($sql2);
+    $values2 = $result2->fetch_row();
+    $student_name = $values2['stud_nm'];
+    $student_rollno = $values['stud_rollno'];
+
+    $name_flag = true;
+    $rollno_flag = true;
+    if($student_name==$name){
+      $name_flag = false;
+    }
+    else{
+      $error_name = "Invalid Name!!";
+      $errors+=1;
+    }
+
+    if($student_rollno==$rno){
+      $rollno_flag = false;
+    }
+    else{
+      $error_rollno = "Invalid Roll No.!!";
+      $errors+=1;
+    }
+
+  }
+    
+  }
+  
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+?-->
+    <div class="container">
+    <header>
+        <div class="logo" id="logo" >CO A L</div>
+        
+            <nav>
+                <ul>
+                  <li>
+                    <div onclick="window.location.href='fsmp.php';">
+                      Home
+                    </div>
+                    </li>
+                      <li>
+                        <div class="active">
+                            Add <i class="fas fa-plus"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div onclick="update()">
+                           Update <i class="fas fa-pen"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div onclick="delete_()">
+                            Delete <i class="fas fa-trash"></i>
+                        </div>
+                    </li>
+                    <li>
+                      <div onclick="display_()" >
+                          Display <i class="fas fa-tv"></i>
+                      </div>
+
+                    </li>
+                </ul>
+            </nav>
+        
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <br><br><br>
+    <div class="content" id="content">
+       <div class="header-sub" id="header-sub"></div>
+       <div id="dup_error"></div><br><br>
+        <form  autocomplete="off">
+            <div class="contact-form">
+                
+                <div class="form-group">
+                    <div class="control-label-div">
+                  <label class="control-label ">Student Name & Roll No.</label>
+                </div>
+                  <div class="col-sm-10" id="stud">
+                  
+                    <input type="text" list="stud_name" class="form-control" id="sname" placeholder="lastname firstname middlename " name="name" onkeyup="showhint(this.value)">
+                    <datalist id="stud_name"></datalist>
+                 
+                    
+                 
+                    <input type="text" class="form-control" id="rollno"  placeholder="Enter Roll Number" name="Roll_No">
+                    <div class="error">
+                      <p  id="name_error"></p>
+                      <p  id="rno_error"></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label-div">
+                  <label class="control-label">AY & Year</label>
+                </div>
+                  <div class="col-sm-10">        
+                    
+                        
+                    <input type="text" list="AY" name="ayear"  class="form-control" id="ayear" placeholder="Academic-year">
+                    
+                    <datalist id="AY">
+                        <option value="2018-19">
+                        <option value="2019-20">
+                        <option value="2020-21">
+                        <option value="2021-22">
+                    </datalist>
+    
+                
+    
+                    <input type="text" list="Year" class="form-control"  name="year" placeholder="Year" id="year">
+                    
+                    <datalist id="Year">
+                        <option value="FE">
+                        <option value="SE">
+                        <option value="TE">
+                        <option value="BE">
+                    </datalist>
+                    <div class="error">
+                      <p  id="ay_error"></p>
+                      <p  id="year_error"></p>
+                    </div>
+                  </div>
+                </div>
+                  <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label">Department & Semester</label>
+                    </div>
+                    <div class="col-sm-10">
+                      
+                    <input type="text" list="department" class="form-control"  name="dept"  placeholder="Department" id="dept" >
+                    <datalist id="department">
+                        <option value="Computer Engineering">
+                        <option value="Information Technology">
+                        <option value="Electronics And Telecommunications Engineering">
+                        <option value="Mechanical Engineering">
+                        <option value="Civil Engineering">
+                        <option value="Instrumentation Engineering">
+                        <option value="Data Science">
+                        <option value="Artificial Intelligence">    
+                    </datalist>
+
+                    <input type="text" list="Sem" name="sem"  class="form-control" id="sem" placeholder="Semester" >
+                    <datalist id="Sem">
+                            <option value="Semester I">
+                            <option value="Semester II">
+                            <option value="Semester III">
+                            <option value="Semester IV">
+                            <option value="Semester V">
+                            <option value="Semester VI">
+                            <option value="Semester VII">
+                            <option value="Semester VIII">
+                    </datalist>
+                    <div class="error">
+                      <p  id="dept_error"></p>
+                      <p  id="sem_error"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="control-label-div-cd">
+                  <label class="control-label-cd">Subject_Code</label>
+                  </div>
+                  <div class="col-sm-10">
+                    
+                    <input type="text" class="form-control" id='sub_cd' name="sb_cd" placeholder="Subject-Code"  maxlength='5'>
+                    <div class="error-cd">
+                      <p id="sub_cd_error"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label">Internal Assesment(Out Off 20)</label>
+                </div>
+                    <div class="col-sm-100">
+                  
+                      <input type="number" class="form-control" id='ia1' name="IA1" placeholder='IA1 Marks (CO1+CO2)'   >
+                      <input type="number" class="form-control" id='ia2' name="IA2" placeholder='IA2 Marks (CO3+CO4)'   >
+                      <div class="marks_errors"><p id="ia_error"></p></div>	
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label" >Quiz Marks(Out Off 5)</label>
+                    </div>
+                    <div class="col-sm-100">
+                      <div>
+                      <input type="number" class="form-control" id='q1' name="Q1" placeholder="Q1-marks" >
+                      <input type="number" class="form-control" id='q2' name="Q2" placeholder="Q2-marks" >
+                    </div><div>
+                      <input type="number" class="form-control" id='q3' name="Q3" placeholder="Q3-marks" >
+                        <input type="number" class="form-control" id='q4' name="Q4" placeholder="Q4-marks"  >
+                    </div>
+                    <div class="marks_errors"><p id="quiz_error"></p></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label">Assignment Marks(Out Off 5)</label>
+                    </div>
+                    <div class="col-sm-100">
+                      <div>
+                      <input type="number" class="form-control" id='a1' name="A1" placeholder="A1-marks"  >
+                      <input type="number" class="form-control" id='a2' name="A2" placeholder="A2-marks"  >
+                      </div><div>
+                      <input type="number" class="form-control" id='a3' name="A3" placeholder="A3-marks"  >
+                      <input type="number" class="form-control" id='a4' name="A4" placeholder="A4-marks"  >	
+                      </div>
+                      <div class="marks_errors"><p id="ass_error"></p></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label">Experiment Marks(Out Off 10)</label>
+                    </div>
+                    <div class="col-sm-100">
+                        <div>
+                      
+                      <input type="number" class="form-control" id='e1' name="E1" placeholder="E1-marks" title="Enter marks in the range 0 to 10" >
+                      <input type="number" class="form-control" id='e2' name="E2" placeholder="E2-marks" title="Enter marks in the range 0 to 10" >
+                    </div>
+                    <div>
+                      <input type="number" class="form-control" id='e3' name="E3" placeholder="E3-marks" title="Enter marks in the range 0 to 10" >
+                      <input type="number" class="form-control" id='e4' name="E4" placeholder="E4-marks" title="Enter marks in the range 0 to 10" >
+                    </div>
+                    <div>
+                      <input type="number" class="form-control" id='e5' name="E5" placeholder="E5-marks" title="Enter marks in the range 0 to 10"  >
+                      <input type="number" class="form-control" id='e6' name="E6" placeholder="E6-marks" title="Enter marks in the range 0 to 10"  >
+                    </div>
+                    <div>
+                      <input type="number" class="form-control" id='e7' name="E7" placeholder="E7-marks" title="Enter marks in the range 0 to 10" >
+                      <input type="number" class="form-control" id='e8' name="E8" placeholder="E8-marks" title="Enter marks in the range 0 to 10" >
+                    </div>
+                    <div>
+                      <input type="number" class="form-control" id='e9' name="E9" placeholder="E9-marks" title="Enter marks in the range 0 to 10"  >
+                      <input type="number" class="form-control" id='e10' name="E10" placeholder="E10-marks" title="Enter marks in the range 0 to 10" >
+                    </div>
+                    <div class="marks_errors"><p id="exp_error"></p></div>
+                    </div>
+                    
+                  </div>
+                  <div class="form-group">
+                    <div class="control-label-div-mp">
+                    <label class="control-label-mp">Mini Project Marks(Out Off 25)</label>
+                    </div>
+                    <div class="col-mp">
+                      
+                      <input type="number" class="form-control" id='proj' name="MP" placeholder="MPmarks"  >
+                      <div class="marks_errors"><p id="mp_error"></p></div>
+                    </div>
+                  </div>
+                  <br>
+                <div class="form-group">       
+                    <div class="btn-grp">
+                        
+                            <input type="button" class="Button" id="reset" value='Reset'>
+                            <input type="button" class="Button" id="submit" value='Submit'>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <div class="logout" id="logout">
+      <div class="logout_box" id="logout_box">
+          <div class="namee" id="namee">
+          </div>
+          <div class="logout-btn" id="logout-btn">
+              <a href="fsmp.php">Log Out <i class="fas fa-sign-out-alt"></i></a>
+          </div>
+          <i class="fas fa-times-circle" id="close2"></i>
+      </div>
+
+  </div>    
+</div>
+    <script src="main.js"></script>
+    <script src="logic_add.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUDD</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link type="text/css" rel="stylesheet" href="display.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <div class="logo" id="logo">CO AL</div>
+        
+            <nav>
+                <ul>
+                    <li>
+                        <div onclick="window.location.href='fsmp.php';">
+                          Home
+                        </div>
+                        </li>
+                    <li>
+                        <div onclick="add()">
+                            Add <i class="fas fa-plus"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div onclick="update()">
+                           Update <i class="fas fa-pen"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div onclick="delete_()">
+                            Delete <i class="fas fa-trash"></i> 
+                        </div>
+                    </li>
+                    <li>
+                      <div class="active">
+                          Display <i class="fas fa-tv"></i>  
+                      </div>
+
+                    </li>
+                </ul>
+            </nav>
+        
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <br><br><br>
+    <div class="content" id="content">
+      <div class="header-sub" id="header-sub"></div><div id="dup_error"></div><br><br>
+        <form autocomplete="off">
+            <div class="contact-form">
+                
+            
+                <div class="form-group">
+                    <div class="control-label-div">
+                  <label class="control-label">AY & Year</label>
+                </div>
+                  <div class="col-sm-10">        
+                    
+                        
+                    <input type="text" list="AY" name="ayear"  class="form-control" id="ayear" placeholder="Academic-year" required="">
+                    
+                    <datalist id="AY">
+                        <option value="2018-19">
+                        <option value="2019-20">
+                        <option value="2020-21">
+                        <option value="2021-22">
+                    </datalist>
+    
+                
+    
+                    <input type="text" list="Year" class="form-control"  name="year" placeholder="Year" id="year" required="">
+                    
+                    <datalist id="Year">
+                        <option value="FE">
+                        <option value="SE">
+                        <option value="TE">
+                        <option value="BE">
+                    </datalist>
+                    <div class="error">
+                        <p  id="ay_error"></p>
+                        <p  id="year_error"></p>
+                      </div>
+                  </div>
+                </div>
+                  <div class="form-group">
+                    <div class="control-label-div">
+                    <label class="control-label">Department & Semester</label>
+                    </div>
+                    <div class="col-sm-10">
+                    <input type="text" list="department" class="form-control"  name="dept"  placeholder="Department" id="dept" required="">
+                    <datalist id="department">
+                        <option value="Computer Engineering">
+                        <option value="Information Technology">
+                        <option value="Electronics And Telecommunications Engineering">
+                        <option value="Mechanical Engineering">
+                        <option value="Civil Engineering">
+                        <option value="Instrumentation Engineering">
+                        <option value="Data Science">
+                        <option value="Artificial Intelligence">    
+                    </datalist>
+
+                    <input type="text" list="Sem" name="sem"  class="form-control" id="sem" placeholder="Semester" required="">
+                    <datalist id="Sem">
+                            <option value="Semester I">
+                            <option value="Semester II">
+                            <option value="Semester III">
+                            <option value="Semester IV">
+                            <option value="Semester V">
+                            <option value="Semester VI">
+                            <option value="Semester VII">
+                            <option value="Semester VIII">
+                    </datalist>
+                    <div class="error">
+                        <p  id="dept_error"></p>
+                        <p  id="sem_error"></p>
+                      </div>
+                  </div>
+                </div>   
+                <div class="form-group">
+                    <div class="control-label-div-cd">
+                    <label class="control-label-cd">Subject_Code</label>
+                    </div>
+                    <div class="col-sm-10">
+                    
+                      <input type="text" class="form-control" id='sub_cd' name="sb_cd" placeholder="Subject-Code" onchange='verifycode()' maxlength='5'>
+                      <div class="error-cd">
+                        <p id="sub_cd_error"></p>
+                      </div>
+                    </div>
+                  </div>
+               
+                  <br>
+                <div class="form-group">       
+                    <div class="btn-grp">
+                        
+                            
+                            <input type=button class="Button" id="display" value='Display'>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <div class="logout" id="logout">
+        <div class="logout_box" id="logout_box">
+            <div class="namee" id="namee">
+            </div>
+            <div class="logout-btn" id="logout-btn">
+                <a href="fsmp.php">Log Out <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+            <i class="fas fa-times-circle" id="close2"></i>
+        </div>
+  
+    </div> 
+</div>
+    <script src="main.js"></script>
+    <script src="logic_display.js"></script>
+</body>
+</html>
